@@ -38,6 +38,7 @@ class UserController extends Controller
     {
         $users = $this->userRepository->paginate(setting('paginate'));
         $positions = $this->positionRepository->findAllBy('type', Position::TYPE_USER)->pluck('name', 'id');
+
         return view('web.user.index', compact('users', 'positions'));
     }
 
@@ -53,6 +54,7 @@ class UserController extends Controller
         $this->userRepository->pushCriteria(new NameCriteria($name))
             ->pushCriteria(new EmailCriteria($email))
             ->pushCriteria(new PositionCriteria($position));
+
         $users = $this->userRepository->paginate(setting('paginate'));
 
         return view('web.user.filter', compact('users'));

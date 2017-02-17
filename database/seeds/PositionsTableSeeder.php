@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Position;
 use Illuminate\Database\Seeder;
 
 class PositionsTableSeeder extends Seeder
@@ -11,6 +12,7 @@ class PositionsTableSeeder extends Seeder
      */
     public function run()
     {
+        Position::truncate();
         DB::table('positions')->insert([
             [
                 'name' => 'Manager',
@@ -27,6 +29,26 @@ class PositionsTableSeeder extends Seeder
             [
                 'name' => 'trainer PHP',
                 'type' => 'candidate',
+            ],
+            [
+                'name' => 'Intern PHP',
+                'type' => 'candidate'
+            ],
+            [
+                'name' => 'Intern Ruby',
+                'type' => 'candidate'
+            ],
+            [
+                'name' => 'QA',
+                'type' => 'candidate'
+            ],
+            [
+                'name' => 'New Dev Android',
+                'type' => 'candidate'
+            ],
+            [
+                'name' => 'New Dev iOS',
+                'type' => 'candidate'
             ],
         ]);
     }
