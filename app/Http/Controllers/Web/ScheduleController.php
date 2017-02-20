@@ -23,7 +23,7 @@ class ScheduleController extends Controller
         $this->scheduleRepository = $scheduleRepository;
         $this->fieldRepository = $fieldRepository;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +31,11 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
+        $schedules = $this->scheduleRepository->all();
+
+        return view('web.schedule.index', [
+            'schedules' => $schedules,
+        ]);
     }
 
     /**
@@ -69,7 +73,7 @@ class ScheduleController extends Controller
             ->pushCriteria(new FieldNotEvaluateCriteria($schedule->fields->pluck('id')))
             ->all();
 
-        return view('web.schedule.index', compact('schedule', 'fieldsNotEvaluated'));
+        return view('web.schedule.show', compact('schedule', 'fieldsNotEvaluated'));
     }
 
     /**
@@ -126,5 +130,31 @@ class ScheduleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getEvents(Request $request)
+    {
+        $schedules = $this->scheduleRepository->findWhere(
+            [
+                ['time', '>', $request->input('start')],
+                ['time', '<', $request->input('end')],
+            ]
+        );
+
+        $events = $schedules->map(function ($schedule) {
+
+            return [
+                'title' => $schedule->candidate->position->name,
+                'start' => $schedule['time'],
+                'description' => $schedule['description'],
+                'room' => $schedule->room->name,
+                'round' => $schedule->round->name,
+                'roomUrl' => action('Web\ScheduleController@show', $schedule->id),
+                'candidateName' => $schedule->candidate->name,
+                'candidateUrl' => '#', //TODO: link to candidate profile
+            ];
+        });
+
+        return $events->all();
     }
 }

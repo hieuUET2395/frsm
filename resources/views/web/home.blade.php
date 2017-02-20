@@ -1,4 +1,5 @@
 @extends('layouts.web.main')
+
 @section('content')
 <div class="col-md-9" id="content">
     <div class="row">

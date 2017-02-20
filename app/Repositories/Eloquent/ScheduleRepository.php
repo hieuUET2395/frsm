@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Repositories\Eloquent\Repository;
 use App\Repositories\Contracts\ScheduleRepositoryInterface;
 use App\Models\Schedule;
 

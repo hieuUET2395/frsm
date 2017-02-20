@@ -4,6 +4,7 @@ import SettingTable from "./setting/update"
 import Interview from "./schedule/interview"
 import Chat from "./message/chat"
 require('./bootstrap');
+import Calendar from "./schedule/calendar"
 
 class App {
     constructor(window) {
@@ -29,6 +30,9 @@ class App {
 
         const chat = new Chat(this);
         chat.init();
+
+        const calendar = new Calendar(this);
+        calendar.init();
     }
 
     setup() {

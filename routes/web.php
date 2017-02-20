@@ -34,6 +34,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/', 'Web\CandidateController');
     });
 
+
+    Route::group(['prefix' => 'schedules'], function () {
+        Route::get('events', 'Web\ScheduleController@getEvents');
+    });
+
+    Route::resource('interview-room', 'Web\ScheduleController');
+
     Route::resource('settings', 'Web\SettingController', [
         'only' => [
             'index',
@@ -47,7 +54,5 @@ Route::group(['middleware' => 'register'], function () {
     Route::post('register', 'Auth\RegisterController@register');
 });
 
-
-Route::resource('interview-room', 'Web\ScheduleController');
 Route::resource('message', 'Web\MessageController');
 Route::resource('settings', 'Web\SettingController');

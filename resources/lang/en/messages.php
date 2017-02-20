@@ -60,4 +60,10 @@ return [
     'manager' => 'Manager',
     'assign_to_manager' => 'Assign to manager',
     'unauthorized' => 'Unauthorized action!',
+    'locale' => 'Locale',
+    'close' => 'Close',
+    'join_interview_room' => 'Join interview room',
+    'time' => 'Time',
+    'room' => 'Room',
+    'round' => 'Round',
 ];
