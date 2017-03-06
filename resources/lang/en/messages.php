@@ -45,4 +45,8 @@ return [
     'save' => 'Save',
     'cancel' => 'Cancel',
     'detail' => 'Detail',
+    'create' => 'Create',
+    'manager' => 'Manager',
+    'assign_to_manager' => 'Assign to manager',
+    'unauthorized' => 'Unauthorized action!',
 ];

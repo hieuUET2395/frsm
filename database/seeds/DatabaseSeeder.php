@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoundsTableSeeder::class);
         $this->call(FieldScheduleTableSeeder::class);
         $this->call(SettingsTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
         factory(App\Models\Candidate::class, 3)->create()->each(function ($u) {
             $u->schedules()->save(factory(App\Models\Schedule::class)->create());
         });

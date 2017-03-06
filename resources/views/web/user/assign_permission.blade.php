@@ -1,6 +1,21 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <div class="modal-title"><h3>{{ $user->name }}</h3></div>
+    @if (Auth::user()->is_admin)
+        @if ($user->can('manage', App\Models\User::class))
+            <a class="btn btn-default btn-warning assign-manager is-manager"
+               data-url="{{ action('Web\UserController@assignManager', ['id' => $user->id]) }}"
+               data-id="{{ $user->id }}">
+                @lang('messages.manager')
+            </a>
+        @else
+            <a class="btn btn-default assign-manager"
+               data-url="{{ action('Web\UserController@assignManager', ['id' => $user->id]) }}"
+               data-id="{{ $user->id }}">
+                @lang('messages.assign_to_manager')
+            </a>
+        @endif
+    @endif
 </div>
 <div class="modal-body modal-permission">
     {{ Form::open([

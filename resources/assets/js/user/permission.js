@@ -22,6 +22,7 @@ export default class {
         });
 
         this.updatePermission();
+        this.assignManager();
     }
 
     updatePermission() {
@@ -32,6 +33,51 @@ export default class {
 
                 event.preventDefault();
                 $.post(form.attr('action'), form.serialize());
+            });
+        });
+    }
+
+    assignManager() {
+        const $ = this.jQuery;
+        $(() => {
+            $(".modal-content-permission").on("click", ".assign-manager", (event) => {
+                event.preventDefault();
+                const manager = $(event.target);
+
+                $.get(manager.data("url"), () => {
+
+                    if (manager.hasClass('is-manager')) {
+                        manager.text("Assign to manager");
+                    }
+                    else {
+                        manager.text("Manager");
+                    }
+                    manager.toggleClass("is-manager");
+                    manager.toggleClass("btn-warning");
+                    manager.css("background-color", "");
+                });
+            });
+
+
+            $(".modal-content-permission").on("mouseenter", ".assign-manager", (event) => {
+                const manager = $(event.target);
+
+                if (manager.hasClass("is-manager")) {
+                    manager.text("Remove");
+                    manager.css("background-color", "grey");
+                }
+            });
+
+            $(".modal-content-permission").on("mouseleave", ".assign-manager", (event) => {
+                const manager = $(event.target);
+
+                if (manager.hasClass('is-manager')) {
+                    manager.text("Manager");
+                    manager.css("background-color", "#cbb956");
+                }
+                else {
+                    manager.css("background-color", "");
+                }
             });
         });
     }

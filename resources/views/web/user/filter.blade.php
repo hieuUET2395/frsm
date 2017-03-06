@@ -5,10 +5,12 @@
         <td>{{ $user->position->name }}</td>
         <td>
             <a class="btn btn-primary" href="">@lang('messages.edit')</a>
-            <a class="btn btn-success assign-permission" data-url="{{ action('Web\UserController@assignPermission', ['id' => $user->id]) }}"
-                href="#permission" data-toggle="modal" data-id="{{ $user->id }}">
-                @lang('messages.authorize')
-            </a>
+            @if (Auth::user()->can('manage', App\Models\User::class))
+                <a class="btn btn-success assign-permission" data-url="{{ action('Web\UserController@assignPermission', ['id' => $user->id]) }}"
+                    href="#permission" data-toggle="modal" data-id="{{ $user->id }}">
+                    @lang('messages.authorize')
+                </a>
+            @endif
         </td>
     </tr>
     @empty

@@ -20,7 +20,8 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'position_id' => 1,
+        'position_id' => $faker->numberBetween(2, 3),
+        'is_admin' => false,
         'remember_token' => str_random(10),
     ];
 });
@@ -44,5 +45,13 @@ $factory->define(App\Models\Schedule::class, function (Faker\Generator $faker) {
         'evaluation' => 'Tôt',
         'description' => 'description',
         'time' => Carbon::now(),
+    ];
+});
+
+$factory->define(App\Models\Permission::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'description' =>$faker->text(20),
+        'group_id' => $faker->numberBetween(1, 3),
     ];
 });

@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('filter', 'Web\UserController@filter');
         Route::get('assign-permission/{id}', 'Web\UserController@assignPermission');
         Route::post('update-permission/{id}', 'Web\UserController@updatePermission');
+        Route::get('assign-manager/{id}', 'Web\UserController@assignManager');
         Route::resource('/', 'Web\UserController');
     });
     Route::resource('settings', 'Web\SettingController', [

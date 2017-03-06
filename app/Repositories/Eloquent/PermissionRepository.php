@@ -13,4 +13,9 @@ class PermissionRepository extends Repository implements PermissionRepositoryInt
     {
        return Permission::class;
     }
+
+    public function getManagePermission()
+    {
+        return $this->findBy('name',config('frsm.permission.others.manage'));
+    }
 }
