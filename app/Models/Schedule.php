@@ -46,4 +46,11 @@ class Schedule extends Model
         return $this->belongsToMany(Field::class)->withPivot('score')->withTimestamps();
     }
 
+    /**
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

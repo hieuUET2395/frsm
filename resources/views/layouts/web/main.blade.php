@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="pusher-key" content="{{ env('PUSHER_APP_KEY') }}">
     <title>{{ trans('messages.title') }}</title>
     {!! Html::script('bower_components/tinymce/tinymce.min.js') !!}
     <!-- Bootstrap CSS -->

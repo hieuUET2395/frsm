@@ -18,6 +18,8 @@ use App\Repositories\Eloquent\FieldRepository;
 use App\Repositories\Contracts\FieldRepositoryInterface;
 use App\Repositories\Contracts\CandidateRepositoryInterface;
 use App\Repositories\Eloquent\CandidateRepository;
+use App\Repositories\Contracts\MessageRepositoryInterface;
+use App\Repositories\Eloquent\MessageRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -45,5 +47,6 @@ class RepositoryServiceProvider extends ServiceProvider
         App::bind(ScheduleRepositoryInterface::class, ScheduleRepository::class);
         App::bind(FieldRepositoryInterface::class, FieldRepository::class);
         App::bind(CandidateRepositoryInterface::class, CandidateRepository::class);
+        App::bind(MessageRepositoryInterface::class, MessageRepository::class);
     }
 }

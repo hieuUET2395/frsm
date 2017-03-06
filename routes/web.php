@@ -41,5 +41,7 @@ Route::group(['middleware' => 'register'], function () {
     Route::post('register', 'Auth\RegisterController@register');
 });
 
+
 Route::resource('interview-room', 'Web\ScheduleController');
+Route::resource('message', 'Web\MessageController');
 Route::resource('settings', 'Web\SettingController');

@@ -122,8 +122,27 @@
                     </div>
                     <div class="clearfix"></div>
                     </div>
-                    <div id="chat">
-                        Form Chat
+                    <div class="panel panel-default chat">
+                        <div class="panel-heading">
+                            {{ __('interview.chat') }}
+                        </div>
+                        <div class="box-chat">
+                            @include('web.message.chat', ['messages' => $schedule->messages])
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control message-content" placeholder="Type your message">
+                                    <input type="hidden" class="room-id" value="{{ $schedule->id }}">
+                                    <input type="hidden" class="user-id" value="{{ Auth::id() }}">
+                                        <div class="input-group-addon">
+                                        <a href="#" id="interview-message-send" data-url="{{ action('Web\MessageController@store') }}">
+                                            {{ __('interview.sendMessage') }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </div>

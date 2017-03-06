@@ -62,11 +62,35 @@
                 list-style: none;
             }
         }
-        #chat {
+        .chat {
             background: #FFFFFF;
-            height: 200px;
-            padding: 10px;
+            height: 300px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+            .box-chat {
+                
+                height: 200px;
+                overflow-x: scroll;
+                .user {
+                    padding: 10px 15px; 
+                }
+                .guest {
+                    padding: 10px 15px; 
+                    background: #C7EAFC;
+                    color: #45829b;
+                }
+            }
+            .panel-footer {
+                background: #FFFFFF;
+                padding: 0!important;
+                margin-top: 15px;
+                .input-group-addon {
+                    background: #a3d063;
+                    a {
+                        text-decoration: none;
+                        color: #FFFFFF;
+                    }
+                }
+            }
         }
     }
 }

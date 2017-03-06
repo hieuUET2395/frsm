@@ -20,4 +20,6 @@ return [
     'error_update_evaluate' => 'Error Update Evaluate Candidate',
     'success_update' => 'Success Update Note',
     'error_update' => 'Error Update Note',
+    'chat' => 'Chat',
+    'sendMessage' => 'Send',
 ];

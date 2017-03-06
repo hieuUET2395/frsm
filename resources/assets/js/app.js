@@ -2,6 +2,8 @@ import FilterTable from "./common/filter-table"
 import Permission from "./user/permission"
 import SettingTable from "./setting/update"
 import Interview from "./schedule/interview"
+import Chat from "./message/chat"
+require('./bootstrap');
 
 class App {
     constructor(window) {
@@ -24,6 +26,9 @@ class App {
 
         const interview = new Interview(this);
         interview.init();
+
+        const chat = new Chat(this);
+        chat.init();
     }
 
     setup() {
