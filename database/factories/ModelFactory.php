@@ -29,7 +29,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\Candidate::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'position_id' => $faker->numberBetween(1, 2),
+        'position_id' => $faker->numberBetween(4, 8),
         'email' => $faker->unique()->safeEmail,
         'phone' => $faker->phoneNumber,
         'cv_file' => str_random(10).'.pdf',

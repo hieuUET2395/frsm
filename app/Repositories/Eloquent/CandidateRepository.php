@@ -6,7 +6,7 @@ use App\Repositories\Contracts\CandidateRepositoryInterface;
 
 class CandidateRepository extends Repository implements CandidateRepositoryInterface
 {
-    
+
     /**
      * @return mixed
      */

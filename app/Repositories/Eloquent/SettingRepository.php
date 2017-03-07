@@ -7,6 +7,9 @@ use App\Repositories\Contracts\SettingRepositoryInterface;
 
 class SettingRepository extends Repository implements SettingRepositoryInterface
 {
+    /**
+     * @return mixed
+     */
     public function model()
     {
         return Setting::class;

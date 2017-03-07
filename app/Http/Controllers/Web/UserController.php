@@ -58,6 +58,7 @@ class UserController extends Controller
         $this->userRepository->pushCriteria(new NameCriteria($name))
             ->pushCriteria(new EmailCriteria($email))
             ->pushCriteria(new PositionCriteria($position));
+
         $users = $this->userRepository->paginate(setting('paginate'));
 
         return view('web.user.filter', compact('users'));

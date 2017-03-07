@@ -14,17 +14,17 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <li><a href="#" id="header-toggle-nav"><i class="fa fa-list" aria-hidden="true"></i></a></li>
+                <li class="dropdown">
+                    <a href="{{ action('Web\CandidateController@index') }}">
                         {{ trans_choice('messages.candidate', 2) }}
-                        <b class="caret"></b>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> AAA</a></li>
-                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> BBB</a></li>
-                    </ul>
                 </li>
-                <li><a href="#">{{ trans_choice('messages.employee', 2) }}</a></li>
+                <li>
+                    <a href="{{ action('Web\UserController@index') }}">
+                        {{ trans_choice('messages.employee', 2) }}
+                    </a>
+                </li>
                 <li><a href="#">{{ trans_choice('messages.schedule', 2) }}</a></li>
                 <li><a href="#">@lang('messages.statistic')</a></li>
             </ul>
@@ -38,7 +38,7 @@
                     </form>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> @lang('messages.setting')</a>
+                    <a href="{{ action('Web\SettingController@index') }}"><i class="fa fa-cog" aria-hidden="true"></i> @lang('messages.setting')</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -1,5 +1,5 @@
 @push('css')
-{!! Html::style(mix('css/table.css')) !!}
+{!! Html::style(mix('css/user/table.css')) !!}
 @endpush
 
 @extends('layouts.web.main')

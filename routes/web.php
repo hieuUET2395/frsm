@@ -28,6 +28,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('assign-manager/{id}', 'Web\UserController@assignManager');
         Route::resource('/', 'Web\UserController');
     });
+
+    Route::group(['prefix' => 'candidates'], function () {
+        Route::get('filter', 'Web\CandidateController@filter');
+        Route::resource('/', 'Web\CandidateController');
+    });
+
     Route::resource('settings', 'Web\SettingController', [
         'only' => [
             'index',

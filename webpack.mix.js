@@ -13,6 +13,7 @@ const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
+   .sass('resources/assets/sass/user/table.scss', 'public/css/user')
+   .sass('resources/assets/sass/candidate/table.scss', 'public/css/candidate')
    .sass('resources/assets/sass/setting/table.scss', 'public/css/setting')
-   .sass('resources/assets/sass/user/table.scss', 'public/css')
    .copy('node_modules/autosize/dist/autosize.min.js', 'public/js');
